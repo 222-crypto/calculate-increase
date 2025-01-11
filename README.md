@@ -1,0 +1,1 @@
+![Calculated Approach](./I_HAVE_FOOD_TO_EAT_THAT_YOU_DONT_KNOW_ABOUT/README.png)
