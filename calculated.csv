@@ -6,9 +6,9 @@ Initial_Fish_Calories,444.00,calories,Initial calories from fish
 Calories_Per_Person,777.00,calories,Calories distributed per person
 Loaves_Per_Person,0.35,loaves,Average loaves per person
 Fish_Per_Person,1.75,fish,Average fish per person
-Bread_Multiplier,368.88,x,Bread multiplication factor
+Bread_Multiplier,388.08,x,Bread multiplication factor
 Fish_Multiplier,4375.00,x,Fish multiplication factor
-Bread_Increase,36788.50,%,Percentage increase in bread
+Bread_Increase,38708.50,%,Percentage increase in bread
 Fish_Increase,437400.00,%,Percentage increase in fish
 Leftover_Baskets,12.00,baskets,Number of baskets with leftover bread
 Leftover_Calories,213312.00,calories,Total calories in leftover bread

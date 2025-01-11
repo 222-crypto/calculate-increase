@@ -33,19 +33,19 @@ const (
 )
 
 type CalculateIncrease struct {
-	num_loaves                float64
-	num_fish                  float64
-	extra_bread_calories      float64
-	calories_per_person       float64
-	loaves_per_person         float64
-	fish_per_person           float64
-	total_calories            float64
-	initial_loaves_multiplier float64
-	initial_loaves_increase   float64
-	total_bread_multiplier    float64
-	total_bread_increase      float64
-	fish_multiplier           float64
-	fish_increase             float64
+	num_loaves             float64
+	num_fish               float64
+	initial_bread_calories float64
+	initial_fish_calories  float64
+	calories_per_person    float64
+	loaves_per_person      float64
+	fish_per_person        float64
+	bread_multiplier       float64
+	fish_multiplier        float64
+	bread_increase         float64
+	fish_increase          float64
+	extra_bread_calories   float64
+	total_calories         float64
 }
 
 type OutputData struct {
@@ -56,48 +56,60 @@ type OutputData struct {
 }
 
 func calculateMiracle() CalculateIncrease {
-	// Calculate initial calories available
+	// Initial calories
 	initialBreadCalories := float64(ORIGINAL_LOAVES * CALORIES_PER_LOAF)
 	initialFishCalories := float64(ORIGINAL_FISH * CALORIES_PER_FISH)
 
-	// Calculate required calories
-	totalCaloriesNeeded := float64(TOTAL_PEOPLE * CALORIES_PER_MEAL)
+	// Calories per person per type (50/50 split)
+	caloriesPerType := float64(CALORIES_PER_MEAL * CALORIE_SPLIT_RATIO)
 
-	// Calculate leftover bread calories in baskets
-	leftoverCalories := float64(EXTRA_BASKETS * BASKET_CAPACITY * CALORIES_PER_LOAF)
+	// Calculate servings per person
+	loavesPerPerson := caloriesPerType / float64(CALORIES_PER_LOAF)
+	fishPerPerson := caloriesPerType / float64(CALORIES_PER_FISH)
 
-	// Calculate actual total calories distributed (including leftovers)
-	totalCaloriesDistributed := totalCaloriesNeeded + leftoverCalories
+	// Total distributed calories per type
+	totalBreadDistributed := float64(TOTAL_PEOPLE) * caloriesPerType
+	totalFishDistributed := float64(TOTAL_PEOPLE) * caloriesPerType
+
+	// Leftover bread calories (no leftover fish)
+	leftoverBreadCalories := float64(EXTRA_BASKETS * BASKET_CAPACITY * CALORIES_PER_LOAF)
+
+	// Total bread calories including leftovers
+	totalBreadCalories := totalBreadDistributed + leftoverBreadCalories
+
+	// Calculate multipliers
+	breadMultiplier := totalBreadCalories / initialBreadCalories
+	fishMultiplier := totalFishDistributed / initialFishCalories
 
 	return CalculateIncrease{
-		num_loaves:                float64(ORIGINAL_LOAVES),
-		num_fish:                  float64(ORIGINAL_FISH),
-		extra_bread_calories:      leftoverCalories,
-		calories_per_person:       float64(CALORIES_PER_MEAL),
-		loaves_per_person:         float64(CALORIES_PER_MEAL*CALORIE_SPLIT_RATIO) / float64(CALORIES_PER_LOAF),
-		fish_per_person:           float64(CALORIES_PER_MEAL*(1-CALORIE_SPLIT_RATIO)) / float64(CALORIES_PER_FISH),
-		total_calories:            totalCaloriesDistributed,
-		initial_loaves_multiplier: (totalCaloriesDistributed * CALORIE_SPLIT_RATIO) / initialBreadCalories,
-		initial_loaves_increase:   ((totalCaloriesDistributed*CALORIE_SPLIT_RATIO)/initialBreadCalories - 1) * 100,
-		total_bread_multiplier:    (totalCaloriesNeeded*CALORIE_SPLIT_RATIO + leftoverCalories) / initialBreadCalories,
-		total_bread_increase:      ((totalCaloriesNeeded*CALORIE_SPLIT_RATIO+leftoverCalories)/initialBreadCalories - 1) * 100,
-		fish_multiplier:           (totalCaloriesNeeded * (1 - CALORIE_SPLIT_RATIO)) / initialFishCalories,
-		fish_increase:             ((totalCaloriesNeeded*(1-CALORIE_SPLIT_RATIO))/initialFishCalories - 1) * 100,
+		num_loaves:             float64(ORIGINAL_LOAVES),
+		num_fish:               float64(ORIGINAL_FISH),
+		initial_bread_calories: initialBreadCalories,
+		initial_fish_calories:  initialFishCalories,
+		calories_per_person:    float64(CALORIES_PER_MEAL),
+		loaves_per_person:      loavesPerPerson,
+		fish_per_person:        fishPerPerson,
+		bread_multiplier:       breadMultiplier,
+		fish_multiplier:        fishMultiplier,
+		bread_increase:         (breadMultiplier - 1) * 100,
+		fish_increase:          (fishMultiplier - 1) * 100,
+		extra_bread_calories:   leftoverBreadCalories,
+		total_calories:         totalBreadDistributed + totalFishDistributed + leftoverBreadCalories,
 	}
 }
 
 func getOutputData(calc CalculateIncrease) []OutputData {
 	return []OutputData{
-		{"Initial_Bread", float64(ORIGINAL_LOAVES), "loaves", "Starting amount of bread"},
-		{"Initial_Fish", float64(ORIGINAL_FISH), "fish", "Starting amount of fish"},
-		{"Initial_Bread_Calories", float64(ORIGINAL_LOAVES * CALORIES_PER_LOAF), "calories", "Initial calories from bread"},
-		{"Initial_Fish_Calories", float64(ORIGINAL_FISH * CALORIES_PER_FISH), "calories", "Initial calories from fish"},
+		{"Initial_Bread", calc.num_loaves, "loaves", "Starting amount of bread"},
+		{"Initial_Fish", calc.num_fish, "fish", "Starting amount of fish"},
+		{"Initial_Bread_Calories", calc.initial_bread_calories, "calories", "Initial calories from bread"},
+		{"Initial_Fish_Calories", calc.initial_fish_calories, "calories", "Initial calories from fish"},
 		{"Calories_Per_Person", calc.calories_per_person, "calories", "Calories distributed per person"},
 		{"Loaves_Per_Person", calc.loaves_per_person, "loaves", "Average loaves per person"},
 		{"Fish_Per_Person", calc.fish_per_person, "fish", "Average fish per person"},
-		{"Bread_Multiplier", calc.initial_loaves_multiplier, "x", "Bread multiplication factor"},
+		{"Bread_Multiplier", calc.bread_multiplier, "x", "Bread multiplication factor"},
 		{"Fish_Multiplier", calc.fish_multiplier, "x", "Fish multiplication factor"},
-		{"Bread_Increase", calc.initial_loaves_increase, "%", "Percentage increase in bread"},
+		{"Bread_Increase", calc.bread_increase, "%", "Percentage increase in bread"},
 		{"Fish_Increase", calc.fish_increase, "%", "Percentage increase in fish"},
 		{"Leftover_Baskets", float64(EXTRA_BASKETS), "baskets", "Number of baskets with leftover bread"},
 		{"Leftover_Calories", calc.extra_bread_calories, "calories", "Total calories in leftover bread"},
