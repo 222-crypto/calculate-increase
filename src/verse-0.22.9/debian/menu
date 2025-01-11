@@ -1,0 +1,2 @@
+?package(verse): needs="text" section="Applications/Text" title="Daily Scripture Verse" \
+	command="/usr/bin/verse-dialog"

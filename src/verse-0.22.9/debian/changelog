@@ -1,0 +1,147 @@
+verse (0.22.9) unstable; urgency=medium
+
+  * Improved support for cross-building, thanks to Nilesh Patra for the patch
+    (Closes: #1014624)
+  * Update to Standards-Version 4.6.1 (no changes)
+  * Build with hardening flags enabled
+
+ -- Roberto C. Sánchez <roberto@debian.org>  Sat, 09 Jul 2022 10:21:15 -0400
+
+verse (0.22.8) unstable; urgency=low
+
+  * Patch from John Zaitseff (Closes: #782100):
+    + Remove repeated word from April 8th verse (Philippians 4:6,7)
+    + Remove trailing whitespace
+  * Update maintainer email address.
+  * Update to debhelper compatibility level 10 (Closes: #965862)
+  * Update to Standards-Version 4.5.0 (no changes)
+  * Change menu section (Apps -> Applications)
+
+ -- Roberto C. Sanchez <roberto@debian.org>  Fri, 25 Sep 2020 11:38:34 -0400
+
+verse (0.22.7) unstable; urgency=low
+
+  * Cleanup build time warnings
+  * Update to Standards-Version 3.9.4 (no changes)
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Sat, 03 Aug 2013 16:05:41 -0400
+
+verse (0.22.6) unstable; urgency=low
+
+  * Update to Standards-Version 3.9.2 (no changes)
+  * Stop ignoring "make clean" errors, patch from Jakub Wilk (Closes: #642238)
+  * Specify Debian source format as "3.0 (native)"
+  * Add recommended targets to debian/rules
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Tue, 20 Sep 2011 15:36:05 -0400
+
+verse (0.22.5) unstable; urgency=low
+
+  * Update to Standards-Version 3.8.3 (no changes)
+  * Update copyright file to new proposed format
+  * Fix verse for May 5th, patch from John Zaitseff (Closes: #527022)
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Fri, 11 Sep 2009 15:33:17 -0400
+
+verse (0.22.4) unstable; urgency=low
+
+  * New maintainer
+  * Update to Standards-Version 3.7.3 (numerous changes)
+  * Switch from debmake to debhelper (Closes: #372963, #438240)
+  * Fix specification for April 13 verse from Psalms (Closes: #181113)
+  * Clean up verse text
+  * Change verse database location from /usr/lib to /usr/share/verse
+  * Updated man pages to reflect new location of verse database
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Sat, 29 Dec 2007 23:36:22 -0500
+
+verse (0.22.3) unstable; urgency=low
+
+  * Fixed spelling error in a verse
+
+ -- Oliver Elphick <olly@lfix.co.uk>  Thu, 21 Nov 2002 00:27:08 +0000
+
+verse (0.22.2) unstable; urgency=low
+
+  * Added missing word "you" for 18th September. 
+
+ -- Oliver Elphick <olly@lfix.co.uk>  Wed, 18 Sep 2002 08:26:04 +0100
+
+verse (0.22.1) frozen unstable; urgency=low
+
+  * NMU
+  * Add build-depends:  Closes: #105111
+
+ -- LaMont Jones <lamont@ia.mmjgroup.com>  Mon, 23 Jul 2001 11:22:42 -0600
+
+verse (0.22) frozen unstable; urgency=low
+
+  * Fixed menu entry which called up an xterm only to have it disappear
+    immediately.  Now uses the script verse-dialog.  Closes: 50130
+
+ -- Oliver Elphick <olly@lfix.co.uk>  Sun, 20 May 2001 20:43:08 +0100
+
+verse (0.21) frozen unstable; urgency=low
+
+  * Moved randverse out of this package into bible-kjv - closes: bug#30863
+  * Updated packaging
+
+ -- Oliver Elphick <Oliver.Elphick@lfix.co.uk>  Sun, 14 Nov 1999 20:30:46 +0000
+
+verse (0.20) unstable; urgency=low
+
+  * rebuild fixes #19426
+
+ -- Christoph Lameter <clameter@debian.org>  Sun, 15 Mar 1998 15:36:59 -0800
+
+verse (0.19) unstable; urgency=low
+
+  * Amended text to eliminate unnecessary verse reference at the start of
+    one text
+
+ -- Oliver Elphick <Oliver.Elphick@lfix.co.uk>  Wed, 31 Dec 1997 16:58:36 +0000
+
+verse (0.18) unstable; urgency=low
+
+  * Added dependency on bible-kjv, required by random verse program.
+  * Added program to display a verse by random selection
+  * New maintainer
+
+ -- Oliver Elphick <Oliver.Elphick@lfix.co.uk>  Thu, 11 Dec 1997 18:06:01 +0000
+
+verse (0.17) unstable; urgency=low
+
+  * build for libc6. Standards update
+
+ -- Christoph Lameter <clameter@waterf.org>  Sat, 21 Jun 1997 19:05:52 -0700
+
+verse (0.16) unstable; urgency=low
+
+  * Changes section to doc
+
+ -- Christoph Lameter <clameter@waterf.org>  Thu, 6 Feb 1997 11:52:14 -0800
+
+verse (0.15) unstable; urgency=low
+
+  * Added menu capability
+
+ -- Christoph Lameter <clameter@waterf.org>  Sat, 14 Dec 1996 17:03:33 -0800
+
+verse (0.14) unstable; urgency=low
+
+  * Switched off static linking
+  * manpage provided
+  * debstd used -> compressed docs, manpage, stripping etc.
+  * some docs included
+
+ -- Christoph Lameter <clameter@waterf.org>  Fri, 1 Nov 1996 06:37:35 -0800
+
+verse (0.13) unstable; urgency=low
+
+  * Initial Release with standards 2.0.1.0
+
+ -- Christoph Lameter <clameter@waterf.org>  Thu, 01 Sep 1996 15:37:25 +0100
+
+Local variables:
+mode: debian-changelog
+End:

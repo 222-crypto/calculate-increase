@@ -1,0 +1,13 @@
+Source: verse
+Section: doc
+Priority: optional
+Maintainer: Roberto C. Sánchez <roberto@debian.org>
+Standards-Version: 4.6.1
+Build-Depends: debhelper (>=10)
+
+Package: verse
+Architecture: any
+Depends: dialog, ${shlibs:Depends}, ${misc:Depends}
+Description: Daily Devotional Verse from the KJV Bible
+ Verse displays a Bible Verse on each login. A verse from the King James
+ Version of the Bible is assigned to each day.

@@ -1,0 +1,2 @@
+#!/bin/bash
+dialog --cr-wrap --backtitle "Scripture verse for $(date +'%d %B')" --msgbox "$(verse)" $(($(verse | wc -l) + 5)) 80 

@@ -1,0 +1,12 @@
+Christoph Lameter wrote the original verse program and Debianised the package.
+
+Fixes:
+0.11 Month returned from "localtime()" is in range 0..11 and not 1..12 as
+     assumed. Months were calculated incorrectly.
+
+0.12 Debianized
+
+0.13 Better Debianized
+
+
+Oliver Elphick wrote randverse and added it to the package.

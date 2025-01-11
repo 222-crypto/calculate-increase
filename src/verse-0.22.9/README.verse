@@ -1,0 +1,20 @@
+This is software to display a daily verse from Scripture.
+
+Installation:
+  make
+  make install
+
+Usage:
+  verse
+
+A fairly easy program. My first complete software written on Linux. If you
+are a beginner it should be fairly easy to read the small source.
+
+Christoph Lameter, clameter@netcom.com
+ 
+P.S. Copyright is GPL and the verses were taken from a DOS Program called
+VERSEDAY. The author is reachable on CompuServe and Genie:
+
+                    Frank Chin
+                    PO Box 1842
+                    West Monroe, LA 71291

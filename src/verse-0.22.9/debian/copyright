@@ -1,0 +1,15 @@
+Files: *
+Copyright: (c) 1995-1998 Christoph Lameter <clameter@netcom.com>
+Copyright: (c) 1997-2002 Oliver Elphick <olly@lfix.co.uk>
+Copyright: (c) 2007-2008 Roberto C. Sanchez <roberto@connexer.com>
+License: GPL
+ Verse's licence is GPL; the verses were taken from a DOS Program called
+ VERSEDAY, whose author is reachable on CompuServe and Genie:
+
+ Frank Chin
+ PO Box 1842
+ West Monroe, LA 71291
+
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL'.
+
